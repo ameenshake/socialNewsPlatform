@@ -1,4 +1,8 @@
 <?php
+/*---------------------------------------------------------
+ *  All requests are routed through this file to a
+ *  cotroller and a method in that controller (action)
+ *---------------------------------------------------------*/
 
 require_once 'db.php';
 
@@ -12,3 +16,6 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
     $controller = 'pages';
     $actions = 'home';
 }
+
+//static layout
+require_once 'views/layout.php';
