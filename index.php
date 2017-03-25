@@ -1,12 +1,11 @@
 <?php
 /*---------------------------------------------------------
- *  All requests are routed through this file to a
- *  cotroller and a method in that controller (action)
+ *  All requests are recieved by this file and sent to a
+ *  cotroller.
+ * Flow: index + lay
  *---------------------------------------------------------*/
 
 require_once 'db.php';
-
-var_dump($_GET);
 
 //checks if pararmets of controller and action are set, otherwise it set them
 if (isset($_GET['controller']) && isset($_GET['action'])) {
@@ -14,7 +13,7 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
     $action = $_GET['action'];
 } else {
     $controller = 'pages';
-    $actions = 'home';
+    $action = 'home';
 }
 
 //static layout

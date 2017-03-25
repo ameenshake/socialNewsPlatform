@@ -12,11 +12,13 @@ function call($controller, $action)
     //call the
     switch ($controller) {
       case 'pages':
-        // code...
+        $controller = new PagesController();
         break;
     }
 
-    $controller->action();
+    $controller->$action();
+}
+
 
     //list of controllers and their methods (actions)
     $controllers = ['pages' => ['home', 'error']];
@@ -25,8 +27,9 @@ function call($controller, $action)
     //checks to see if provided controller exists and if that controller has the action
     foreach ($controllers as $key => $value) {
         if ($key == $controller) {
+
             $controllerExists = true;
-            foreach ($key as $innerValue) {
+            foreach ($value as $innerValue) {
                 if ($innerValue == $action) {
                     $actionExists == true;
                 }
@@ -35,9 +38,8 @@ function call($controller, $action)
         }
     }
 
-    if($controllerExists && $actionExists){
-      call($controller, $action);
+    if ($controllerExists && $actionExists) {
+        call($controller, $action);
     } else {
-      call('pages', 'error');
+        call('pages', 'error');
     }
-}
