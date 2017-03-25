@@ -19,7 +19,6 @@ function call($controller, $action)
     $controller->$action();
 }
 
-
     //list of controllers and their methods (actions)
     $controllers = ['pages' => ['home', 'error']];
     $controllerExists = false;
@@ -27,11 +26,10 @@ function call($controller, $action)
     //checks to see if provided controller exists and if that controller has the action
     foreach ($controllers as $key => $value) {
         if ($key == $controller) {
-
             $controllerExists = true;
             foreach ($value as $innerValue) {
                 if ($innerValue == $action) {
-                    $actionExists == true;
+                    $actionExists = true;
                 }
             }
             break;

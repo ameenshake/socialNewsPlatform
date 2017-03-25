@@ -6,7 +6,6 @@
   </head>
   <body>
     <p>Where did it all go wrong?</p>
-    <?php var_dump($_GET);
-    echo $action; ?>
+    
   </body>
 </html>
