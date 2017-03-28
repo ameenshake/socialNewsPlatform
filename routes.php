@@ -9,20 +9,26 @@ function call($controller, $action)
     //require the controller file
     require_once 'controller/cl_'.$controller.'.php';
 
-    //call the
+    //make instance of the right class
+    //(make sure to update any new controllers here)
     switch ($controller) {
       case 'pages':
         $controller = new PagesController();
         break;
+      case 'posts':
+        $controller = new PostsController();
     }
 
     $controller->$action();
 }
 
-    //list of controllers and their methods (actions)
-    $controllers = ['pages' => ['home', 'error']];
+    //list of controllers and their methods (actions).
+    $controllers = ['pages' => ['home', 'error'],
+                    'posts' => ['index', 'show'], ];
+
     $controllerExists = false;
     $actionExists = false;
+
     //checks to see if provided controller exists and if that controller has the action
     foreach ($controllers as $key => $value) {
         if ($key == $controller) {

@@ -1,0 +1,38 @@
+form {
+  width: 50%;
+  margin: auto;
+}
+
+.register {
+  padding-top: 1em;
+  width: 40%;
+  margin: auto;
+}
+
+.register span {
+  font-size: 1.5em;
+  display: block;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+.fat{
+  font-size: 1em;
+  display: block;
+  margin-bottom: 1em;
+  width: 100%;
+  height: 3em;
+  padding: 0 0.4em;
+}
+
+#button{
+  padding: 0.6em;
+  background-color: #8028e4;
+  color: white;
+  font-weight: bold;
+  border: #8028e4 2px solid;
+}
+
+.missing{
+  border: red solid;
+}

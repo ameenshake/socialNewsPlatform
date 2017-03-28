@@ -1,0 +1,139 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 10em;
+  background-color: #ffd522;
+}
+
+.logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3em;
+  margin-left: 0.4em;
+}
+
+.tabmenu {
+  list-style: none;
+  position: absolute;
+  top: 130px;
+  font-size: 1.5em;
+}
+
+.tabmenu li {
+  display: inline;
+}
+
+.tabmenu li a {
+  background-color: rgba(0, 0, 0, 0.27);
+  padding: 0.2em;
+  color: white;
+}
+.tabmenu li a:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+
+}
+
+.sidebar {
+  width: 25%;
+  float: right;
+  border: 1px solid black;
+}
+
+.content {
+  float: left;
+  margin-top: 1em;
+  height: 100%;
+  width: 75%;
+  background-color: azure;
+}
+
+footer {
+  background-color: pink;
+  height: 10em;
+}
+
+.categories ul {
+  list-style: none;
+}
+
+.categories li {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.categories a {
+  margin: auto;
+  display: block;
+  width: 10em;
+  padding: 0.5em 0;
+  background-color: #3D3522;
+  color: white;
+  text-align: center;
+}
+
+.categories a:hover {
+  background-color: #786f4f;
+}
+
+#searchform {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+#search {
+  display: block;
+  width: 42%;
+  margin: auto;
+  padding: 0.5em 0 0.5em 0.5em;
+}
+
+.entry img {
+  height: 5em;
+  width: 5em;
+  float: left;
+  border: black solid 1px;
+  display: inline;
+}
+
+.entry {
+  background: #f5f5f5;
+  border-top: 1px solid #ffd41b;
+  overflow: auto;
+  margin-bottom: 1em;
+}
+
+.entry a {
+  font-size: 1.4em;
+  font-weight: normal;
+  margin-left: 1em;
+}
+
+.user{
+  float: right;
+  margin-right: 2em;
+  margin-top: 1em;
+}

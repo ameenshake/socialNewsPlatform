@@ -24,4 +24,4 @@ class Database
     }
 }
 
-//code courtesy of http://requiremind.com/a-most-simple-php-mvc-beginners-tutorial/
+
