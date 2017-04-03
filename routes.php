@@ -10,16 +10,17 @@ function call($controller, $action)
     require_once 'controller/cl_'.$controller.'.php';
 
     //make instance of the right class
-    //(make sure to update any new controllers here)
+    //(make sure to update any new controllers, that you add, here)
     switch ($controller) {
       case 'pages':
         $controller = new PagesController();
         break;
       case 'posts':
         $controller = new PostsController();
+        break;
     }
 
-    $controller->$action();
+    $controller->{ $action }();
 }
 
     //list of controllers and their methods (actions).
