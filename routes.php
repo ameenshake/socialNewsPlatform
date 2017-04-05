@@ -4,30 +4,38 @@
  *  different GET requests
  * ToDo: POST Requests
  *---------------------------------------------------------*/
-if ($isGET) {
-    function callGET($controller, $action)
-    {
-        //require the controller file
-    require_once 'controller/cl_'.$controller.'.php';
+ function callGET($controller, $action)
+ {
+   //require the controller file
+   require_once 'controller/cl_'.$controller.'.php';
 
-    //make instance of the right class
-    //(make sure to update any new controllers, that you add, here)
-    switch ($controller) {
-      case 'pages':
-        $controller = new PagesController();
-        break;
-      case 'posts':
-        require_once 'models/post.php';
-        $controller = new PostsController();
-        break;
-    }
+   //make instance of the right class
+   //(make sure to update any new controllers, that you add, here)
+   switch ($controller) {
+     case 'pages':
+     $controller = new PagesController();
+     break;
 
-        $controller->{ $action }();
-    }
+     case 'posts':
+     require_once 'models/post.php';
+     $controller = new PostsController();
+     break;
 
-    //list of controllers and their methods (actions).
+     case 'users':
+     require_once 'models/user.php';
+     $controller = new UsersController($_POST);
+     break;
+
+
+   }
+
+   $controller->{ $action }();
+ }
+
+  //list of controllers and their methods (actions).
     $controllers = ['pages' => ['registeration', 'error'],
-                    'posts' => ['home', 'show'], ];
+                    'posts' => ['home', 'show'],
+                    'users' => ['create', 'delete']];
 
     $controllerExists = false;
     $actionExists = false;
@@ -50,5 +58,3 @@ if ($isGET) {
     } else {
         callGET('pages', 'error');
     }
-} elseif ($isPOST) {
-}
