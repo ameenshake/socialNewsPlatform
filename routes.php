@@ -1,12 +1,13 @@
 <?php
 /*---------------------------------------------------------
  *  You guessed it, this file manages the routing for the
- *  different requests
+ *  different GET requests
+ * ToDo: POST Requests
  *---------------------------------------------------------*/
-
-function call($controller, $action)
-{
-    //require the controller file
+if ($isGET) {
+    function callGET($controller, $action)
+    {
+        //require the controller file
     require_once 'controller/cl_'.$controller.'.php';
 
     //make instance of the right class
@@ -16,16 +17,17 @@ function call($controller, $action)
         $controller = new PagesController();
         break;
       case 'posts':
+        require_once 'models/post.php';
         $controller = new PostsController();
         break;
     }
 
-    $controller->{ $action }();
-}
+        $controller->{ $action }();
+    }
 
     //list of controllers and their methods (actions).
-    $controllers = ['pages' => ['home', 'error'],
-                    'posts' => ['index', 'show'], ];
+    $controllers = ['pages' => ['registeration', 'error'],
+                    'posts' => ['home', 'show'], ];
 
     $controllerExists = false;
     $actionExists = false;
@@ -44,7 +46,9 @@ function call($controller, $action)
     }
 
     if ($controllerExists && $actionExists) {
-        call($controller, $action);
+        callGET($controller, $action);
     } else {
-        call('pages', 'error');
+        callGET('pages', 'error');
     }
+} elseif ($isPOST) {
+}

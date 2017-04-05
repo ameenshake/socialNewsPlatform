@@ -15,7 +15,7 @@
       <a class="logo" href="">MyDiscussionForum</a>
 
       <a class="user" href="login.html">Log In</a>
-      <a class="user" href="registeration.html">Register</a>
+    <a class="user" href="index.php?controller=pages&action=registeration">Register</a>
 
     </div>
 

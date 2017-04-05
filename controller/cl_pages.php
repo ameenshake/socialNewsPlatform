@@ -5,9 +5,10 @@
  *---------------------------------------------------------*/
 class PagesController
 {
-    public function home()
+    public function registeration()
     {
-        require_once 'views/pages/home.html';
+        
+        require_once 'views/pages/registeration.html';
     }
     public function error()
     {
