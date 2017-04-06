@@ -14,8 +14,15 @@
     <div class="topmost">
       <a class="logo" href="">MyDiscussionForum</a>
 
-      <a class="user" href="login.html">Log In</a>
-    <a class="user" href="index.php?controller=pages&action=registeration">Register</a>
+      <?php
+
+      session_start();
+      if (isset($_SESSION['user'])){
+        echo '<a class="user" href="index.php?controller=users&action=logout">Logout</a>';
+        echo '<a class="user" href="index.php?controller=users&action=account">'.$_SESSION['user'].'</a>';
+      } else {
+      echo '<a class="user" href="index.php?controller=pages&action=login">Log In</a>
+    <a class="user" href="index.php?controller=pages&action=registeration">Register</a>'; }?>
 
     </div>
 

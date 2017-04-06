@@ -21,10 +21,13 @@
      $controller = new PostsController();
      break;
 
+     //can handle POST requests
      case 'users':
      require_once 'models/user.php';
      $controller = new UsersController($_POST);
      break;
+
+
 
 
    }
@@ -33,9 +36,9 @@
  }
 
   //list of controllers and their methods (actions).
-    $controllers = ['pages' => ['registeration', 'error'],
+    $controllers = ['pages' => ['registeration', 'login', 'error'],
                     'posts' => ['home', 'show'],
-                    'users' => ['create', 'delete']];
+                    'users' => ['create', 'login', 'logout', 'account']];
 
     $controllerExists = false;
     $actionExists = false;

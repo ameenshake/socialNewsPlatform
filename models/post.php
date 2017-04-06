@@ -3,8 +3,6 @@
 /*---------------------------------------------------------
  *  All database logic for Posts goes here.
  *  You will find function to return all posts find
- *
- *
  *---------------------------------------------------------*/
 
 class Post

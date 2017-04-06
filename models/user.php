@@ -1,46 +1,50 @@
 <?php
 
 /*---------------------------------------------------------
- *  All database logic for Posts goes here.
- *  You will find function to return all posts find
- *
- *
+ *  All database logic for Users goes here.
+ *  You will find function to create and return Users
  *---------------------------------------------------------*/
 
 class User
 {
-    public $username;
-    public $password;
-    public $email;
-    public $fname;
-    public $lname;
 
-    public function __construct($username, $password, $email, $fname, $lname)
-    {
-        $this->username = $username;
-        $this->password = $password;
-        $this->email = $email;
-        $this->fname = $fname;
-        $this->lname = $lname;
-    }
-    public function create()
-    {
-        $userExists = true;
+
+    //create a new user in the database
+    public static function create($username, $password, $email, $fname, $lname)
+    {   //should I surround with try catch...?
+
+
 
         $db = Database::connect();
         $sql = 'SELECT * FROM users WHERE username = ? OR email = ?';
         $statement = $db->prepare($sql);
-        $statement->execute([$this->username, $this->email]);
+        $statement->execute([$username, $email]);
 
         if ($statement->fetch()) {
-            return $userExists;
+            return true;
         } else {
-            $userExists = false;
             $sql = 'INSERT INTO users values (?, ?, ?, ?, ?)';
             $stmt = $db->prepare($sql);
-            $stmt->execute([$this->username, $this->fname, $this->lname, md5($this->password), $this->email]);
+            $stmt->execute([$username, $fname, $lname, md5($password), $email]);
 
-            return $userExists;
+            return false;
         }
+        $db = null;
+    }
+
+    public static function getUser($username, $password) {
+
+        $db = Database::connect();
+        $sql = 'SELECT username, email FROM users WHERE username = ? AND pass = ?';
+        $statement = $db->prepare($sql);
+        $statement->execute([$username, md5($password)]);
+        $result = $statement->fetch();
+
+        if (!$result) {
+          return false;
+        } else {
+          return $result;
+        }
+
     }
 }
