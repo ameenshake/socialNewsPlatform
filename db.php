@@ -16,7 +16,7 @@ class Database
         if (!isset(self::$instance)) {
             $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
             $connectionString = 'mysql:host=localhost;dbname=project';
-            $user = 'webuser';
+            $user = 'weasbuser';
             $pass = 'P@ssw0rd';
             self::$instance = new PDO($connectionString, $user, $pass, $pdo_options);
         }

@@ -11,16 +11,20 @@ class Post
     public $image;
     public $link;
     public $username;
+    public $content;
+    public $date;
+    public $category;
 
-    private function __construct($title, $image, $link, $username)
+    public function __construct($title, $image, $link, $username, $content, $date, $category)
     {
-      $this->title = $title;
-      $this->image = $image;
-      $this->link = $link;
-      $this->username = $username;
+        $this->title = $title;
+        $this->image = $image;
+        $this->link = $link;
+        $this->username = $username;
     }
 
-    public static function fetch()
+    //returning a whole object is unecessary, should probably return Array. More efficient on memory maybe?
+    public static function fetchPosts()
     {
         $list = [];
         $db = Database::connect();
@@ -32,6 +36,25 @@ class Post
             $list[] = new self($value['title'], $value['image'], $value['link'], $value['username']);
         }
 
+        $db = null;
+
         return $list;
+    }
+
+    public function createPost()
+    {
+        try {
+            $db = Database::connect();
+            $sql = 'INSERT INTO posts VALUES (?, ?, ?, ?, ?, ?, ?)';
+            $stmt = $db->prepare($sql);
+            $stmt->execute([$this->title, $this->link, $this->content, $this->image, $this->username, $this->date, $this->category]);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function fetchComments()
+    {
     }
 }

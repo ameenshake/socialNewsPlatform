@@ -5,11 +5,13 @@ class PostsController
 {
     public function home()
     {
-        $posts = Post::fetch();
+        $posts = Post::fetchPosts();
         require_once 'views/posts/home.php';
     }
 
-    public function show()
+    public function create($postData)
     {
+      $date = date('Y-m-d H:i:s');
+      // $post = new Post($);
     }
 }

@@ -19,16 +19,29 @@
 
     <?php
 
+    // todo: cleaner version of doing this
     foreach ($posts as $post) {
         echo  '<div class="entry">
         <img src="'.$post->image.'" alt="" />
         <span><a href="'.$post->link.'">'.$post->title.'</a></span>
+        <div>
+          <a href="#"></a>
+        </div>
+        <div >
+          <a href="">comments</a>
+        </div>
       </div>';
     }?>
 
     <div class="entry">
       <img src="https://pbs.twimg.com/profile_images/771517286540718080/wKcYfzaJ.jpg" alt="" />
       <span><a href="#">Apples goes bankrupt? Click Here to find out!</a></span>
+      <div>
+        <a href="#"></a>
+      </div>
+      <div >
+        <a href="">comments</a>
+      </div>
     </div>
     <div class="entry">
       <img src="https://pbs.twimg.com/profile_images/709852306632744960/zQ0xyGGK.jpg" alt="" />
