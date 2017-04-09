@@ -6,7 +6,7 @@
     </form>
     <nav class="categories">
       <ul>
-        <li><a href="#">New Post</a></li>
+        <li><a href="index.php?controller=posts&action=newPostPage">New Post</a></li>
         <li><a href="">Software Discussion</a></li>
         <li><a href="">Game Discussion</a></li>
         <li><a href="">Movie Discussion</a></li>
@@ -20,7 +20,7 @@
 
     <?php
 
-    // todo: cleaner version of doing this
+    // TODO: cleaner version of doing this
     foreach ($posts as $post) {
         echo  '<div class="entry">
         <img src="'.$post->image.'" alt="" />

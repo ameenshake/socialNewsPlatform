@@ -1,11 +1,12 @@
 <?php
 /*---------------------------------------------------------
  *  You guessed it, this file manages the routing for the
- *  different GET requests
- * ToDo: POST Requests
+ *  different GET and POST requests
  *---------------------------------------------------------*/
- function callGET($controller, $action)
+
+ function call($controller, $action)
  {
+
    //require the controller file
    require_once 'controller/cl_'.$controller.'.php';
 
@@ -16,9 +17,10 @@
      $controller = new PagesController();
      break;
 
+     //can't handle POST
      case 'posts':
      require_once 'models/post.php';
-     $controller = new PostsController();
+     $controller = new PostsController($_POST);
      break;
 
      //can handle POST requests
@@ -26,25 +28,21 @@
      require_once 'models/user.php';
      $controller = new UsersController($_POST);
      break;
-
-
-
-
    }
 
    $controller->{ $action }();
  }
 
   //list of controllers and their methods (actions).
-    $controllers = ['pages' => ['registeration', 'login', 'error'],
-                    'posts' => ['home', 'show'],
+    $controllerList = ['pages' => ['registeration', 'login', 'error'],
+                    'posts' => ['home', 'show', 'newPostPage', 'create'],
                     'users' => ['create', 'login', 'logout', 'account']];
 
     $controllerExists = false;
     $actionExists = false;
 
-    //checks to see if provided controller exists and if that controller has the action
-    foreach ($controllers as $key => $value) {
+    //checks to see if provided controller exists and if that controller has the action which is requested
+    foreach ($controllerList as $key => $value) {
         if ($key == $controller) {
             $controllerExists = true;
             foreach ($value as $innerValue) {
@@ -57,7 +55,7 @@
     }
 
     if ($controllerExists && $actionExists) {
-        callGET($controller, $action);
+        call($controller, $action);
     } else {
-        callGET('pages', 'error');
+        call('pages', 'error');
     }

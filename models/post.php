@@ -8,17 +8,15 @@
 class Post
 {
     public $title;
-    public $image;
     public $link;
     public $username;
     public $content;
     public $date;
     public $category;
 
-    public function __construct($title, $image, $link, $username, $content, $date, $category)
+    public function __construct($title, $link, $username, $content, $date, $category)
     {
         $this->title = $title;
-        $this->image = $image;
         $this->link = $link;
         $this->username = $username;
         $this->content = $content;
@@ -36,7 +34,7 @@ class Post
         $stmt->execute();
 
         foreach ($stmt->fetchAll() as $value) {
-            $list[] = new self($value['title'], $value['image'], $value['link'], $value['username'], $value['content'], $value['datePosted'], $value['category']);
+            $list[] = new self($value['title'], $value['link'], $value['username'], $value['content'], $value['datePosted'], $value['category']);
         }
 
         $db = null;
@@ -44,13 +42,18 @@ class Post
         return $list;
     }
 
+    public function fetchSinglePost()
+    {
+      
+    }
+
     public function createPost()
     {
         try {
             $db = Database::connect();
-            $sql = 'INSERT INTO posts VALUES (?, ?, ?, ?, ?, ?, ?)';
+            $sql = 'INSERT INTO posts (title, link, content, username, datePosted, category) VALUES (?, ?, ?, ?, ?, ?)';
             $stmt = $db->prepare($sql);
-            $stmt->execute([$this->title, $this->link, $this->content, $this->image, $this->username, $this->date, $this->category]);
+            $stmt->execute([$this->title, $this->link, $this->content, $this->username, $this->date, $this->category]);
 
             return true;
         } catch (PDOException $e) {

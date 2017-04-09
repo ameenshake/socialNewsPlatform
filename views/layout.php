@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/forms.css">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <title>Home</title>
 
