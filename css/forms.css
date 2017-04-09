@@ -16,16 +16,15 @@ form {
   font-weight: bold;
 }
 
-.fat{
+.fat {
   font-size: 1em;
-  display: block;
   margin-bottom: 1em;
   width: 100%;
   height: 3em;
   padding: 0 0.4em;
 }
 
-#button{
+#button {
   padding: 0.6em;
   background-color: #8028e4;
   color: white;
@@ -33,6 +32,12 @@ form {
   border: #8028e4 2px solid;
 }
 
-.missing{
+.missing {
   border: red solid;
+}
+
+textarea {
+  font-size: 1.15em;
+  padding: 0 0.4em;
+
 }

@@ -6,6 +6,7 @@
     </form>
     <nav class="categories">
       <ul>
+        <li><a href="#">New Post</a></li>
         <li><a href="">Software Discussion</a></li>
         <li><a href="">Game Discussion</a></li>
         <li><a href="">Movie Discussion</a></li>
@@ -32,6 +33,8 @@
         </div>
       </div>';
     }?>
+
+
 
     <div class="entry">
       <img src="https://pbs.twimg.com/profile_images/771517286540718080/wKcYfzaJ.jpg" alt="" />

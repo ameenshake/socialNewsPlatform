@@ -21,6 +21,9 @@ class Post
         $this->image = $image;
         $this->link = $link;
         $this->username = $username;
+        $this->content = $content;
+        $this->date = $date;
+        $this->category = $category;
     }
 
     //returning a whole object is unecessary, should probably return Array. More efficient on memory maybe?
@@ -28,12 +31,12 @@ class Post
     {
         $list = [];
         $db = Database::connect();
-        $sql = 'SELECT title, image, link, username FROM posts';
+        $sql = 'SELECT * FROM posts';
         $stmt = $db->prepare($sql);
         $stmt->execute();
 
         foreach ($stmt->fetchAll() as $value) {
-            $list[] = new self($value['title'], $value['image'], $value['link'], $value['username']);
+            $list[] = new self($value['title'], $value['image'], $value['link'], $value['username'], $value['content'], $value['datePosted'], $value['category']);
         }
 
         $db = null;
@@ -48,6 +51,7 @@ class Post
             $sql = 'INSERT INTO posts VALUES (?, ?, ?, ?, ?, ?, ?)';
             $stmt = $db->prepare($sql);
             $stmt->execute([$this->title, $this->link, $this->content, $this->image, $this->username, $this->date, $this->category]);
+
             return true;
         } catch (PDOException $e) {
             return false;
