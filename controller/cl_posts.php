@@ -9,6 +9,7 @@ class PostsController
     public function __construct($postData, $getData)
     {
         $this->postData = $postData;
+        $this->getData = $getData;
     }
 
     public function home()
@@ -36,8 +37,10 @@ class PostsController
         }
     }
 
+    //TODO: catch for no GET['postID'] being set
     public function postPage()
-    {
-
+    { 
+      $post = Post::fetchSinglePost($this->getData['postID']);
+      require_once 'views/posts/postPage.php';
     }
 }
