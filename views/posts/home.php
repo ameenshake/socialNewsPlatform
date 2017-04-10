@@ -19,12 +19,11 @@
   <section class="content">
 
     <?php
-
-    // TODO: cleaner version of doing this
+    // TODO: cleaner version of doing this. Templating engine maybe?
     foreach ($posts as $post) {
         echo  '<div class="entry">
-        <img src="'.$post->image.'" alt="" />
-        <span><a href="'.$post->link.'">'.$post->title.'</a></span>
+        <img src="#" alt="" />
+        <span><a href="'.$post['link'].'">'.$post['title'].'</a></span>
         <div>
           <a href="#"></a>
         </div>

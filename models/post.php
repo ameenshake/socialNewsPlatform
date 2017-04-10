@@ -3,6 +3,8 @@
 /*---------------------------------------------------------
  *  All database logic for Posts goes here.
  *  You will find function to return all posts find
+ *
+ * TODO: surround reset of models with try..catch blocks
  *---------------------------------------------------------*/
 
 class Post
@@ -14,6 +16,7 @@ class Post
     public $date;
     public $category;
 
+
     public function __construct($title, $link, $username, $content, $date, $category)
     {
         $this->title = $title;
@@ -24,7 +27,7 @@ class Post
         $this->category = $category;
     }
 
-    //returning a whole object is unecessary, should probably return Array. More efficient on memory maybe?
+    //TODO: handle fetching a fixed amount of posts (webpage shouldnt display huge amounts of data)
     public static function fetchPosts()
     {
         $list = [];
@@ -33,18 +36,25 @@ class Post
         $stmt = $db->prepare($sql);
         $stmt->execute();
 
-        foreach ($stmt->fetchAll() as $value) {
-            $list[] = new self($value['title'], $value['link'], $value['username'], $value['content'], $value['datePosted'], $value['category']);
-        }
+        // foreach ($stmt->fetchAll() as $value) {
+        //     $list[] = new self($value['title'], $value['link'], $value['username'], $value['content'], $value['datePosted'], $value['category']);
+        // }
+
+        $list = $stmt->fetchAll();
 
         $db = null;
 
         return $list;
     }
 
-    public function fetchSinglePost()
+    public static function fetchSinglePost($postID)
     {
-      
+      $db = Database::connect();
+      $sql = 'SELECT * FROM posts WHERE postID = ?';
+      $stmt = $db->prepare($sql);
+      $stmt->execute([$postID]);
+
+      return $stmt->fetch();
     }
 
     public function createPost()
@@ -58,6 +68,8 @@ class Post
             return true;
         } catch (PDOException $e) {
             return false;
+        } finally {
+            $db = null;
         }
     }
 

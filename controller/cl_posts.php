@@ -4,8 +4,9 @@
 class PostsController
 {
     private $postData;
+    private $getData;
 
-    public function __construct($postData)
+    public function __construct($postData, $getData)
     {
         $this->postData = $postData;
     }
@@ -33,5 +34,10 @@ class PostsController
         } else {
             require_once 'views/users/error3.html';
         }
+    }
+
+    public function postPage()
+    {
+
     }
 }

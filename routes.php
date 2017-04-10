@@ -2,6 +2,8 @@
 /*---------------------------------------------------------
  *  You guessed it, this file manages the routing for the
  *  different GET and POST requests
+ *
+ * TODO: Better way to handle routing?
  *---------------------------------------------------------*/
 
  function call($controller, $action)
@@ -20,7 +22,7 @@
      //can't handle POST
      case 'posts':
      require_once 'models/post.php';
-     $controller = new PostsController($_POST);
+     $controller = new PostsController($_POST, $_GET);
      break;
 
      //can handle POST requests
@@ -35,7 +37,7 @@
 
   //list of controllers and their methods (actions).
     $controllerList = ['pages' => ['registeration', 'login', 'error'],
-                    'posts' => ['home', 'show', 'newPostPage', 'create'],
+                    'posts' => ['home', 'postPage', 'newPostPage', 'create'],
                     'users' => ['create', 'login', 'logout', 'account']];
 
     $controllerExists = false;
