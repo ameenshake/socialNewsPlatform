@@ -1,0 +1,11 @@
+.post {
+  border: red solid;
+  max-width: 95%;
+  margin: auto;
+}
+
+#comment {
+
+  margin-top: 1em;
+
+}

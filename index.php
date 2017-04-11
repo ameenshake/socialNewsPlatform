@@ -7,13 +7,15 @@
 
 require_once 'db.php';
 
-//checks if pararmets of controller and action are set, otherwise it set them
+
+//TODO: make use of these or get rid of them
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $isGET = true;
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $isPOST = true;
 }
 
+//checks if pararmets of controller and action are set, otherwise it set them
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = $_GET['controller'];
         $action = $_GET['action'];
@@ -22,5 +24,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $action = 'home';
     }
 
-//static layout (header + footer)
+//static layout (header + {dynamic content} + footer)
 require_once 'views/layout.php';

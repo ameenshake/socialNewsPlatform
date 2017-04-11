@@ -36,9 +36,10 @@ class UsersController
     {
         session_start();
         if (isset($_SESSION['user'])) {
-            unset($_SESSION['user']);
+          $_SESSION = array();
             $referal = $_SERVER['HTTP_REFERER'];
             header('Location: '.$referal);
+
         } else {
             header('Location: index.php');
         }

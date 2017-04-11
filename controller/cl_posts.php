@@ -20,7 +20,12 @@ class PostsController
 
     public function newPostPage()
     {
-        require_once 'views/posts/newPost.html';
+
+        if (isset($_SESSION['user'])) {
+            require_once 'views/posts/newPost.html';
+        } else {
+            require_once 'views/users/error3.html';
+        }
     }
 
     //TODO: Set category functionality
@@ -39,8 +44,8 @@ class PostsController
 
     //TODO: catch for no GET['postID'] being set
     public function postPage()
-    { 
-      $post = Post::fetchSinglePost($this->getData['postID']);
-      require_once 'views/posts/postPage.php';
+    {
+        $post = Post::fetchSinglePost($this->getData['postID']);
+        require_once 'views/posts/postPage.php';
     }
 }

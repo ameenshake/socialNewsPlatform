@@ -1,4 +1,4 @@
-form {
+.middle {
   width: 50%;
   margin: auto;
 }
@@ -36,7 +36,7 @@ form {
   border: red solid;
 }
 
-textarea {
+#content {
   font-size: 1.15em;
   padding: 0 0.4em;
 

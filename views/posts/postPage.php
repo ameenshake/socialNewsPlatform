@@ -1,9 +1,25 @@
+<!-- TODO: find better way to serve css files dynamically -->
+<link rel="stylesheet" href="css/post.css">
+
 <div class="main">
 
-  <?php
+    <section class=post>
+      <a href=" <?php echo $post['link']; ?> " id="link"><?php echo $post['title']; ?> </a>
+        <span>(<?php echo parse_url($post['link'])['host']; ?>)</span>
+        <div><?php echo $post['votes'] ?> votes by <a href=""><?php echo $post['username']; ?></a> at <?php echo $post['datePosted']; ?></div>
+        <form class="" action="index.html" method="post">
+          <textarea id="comment" name="name" rows="8" cols="80"></textarea>
+          <input type="submit" name="" value="Submit Comment">
+        </form>
 
-    echo $post['content'];
+    </section>
 
 
-   ?>
+   <div class="post comment">
+     <?php
+      echo $post['title'];
+      var_dump($post);
+
+      ?>
+   </div>
 </div>
