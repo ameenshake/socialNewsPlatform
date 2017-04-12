@@ -22,6 +22,7 @@
      //can't handle POST
      case 'posts':
      require_once 'models/post.php';
+     require_once 'models/comment.php';
      $controller = new PostsController($_POST, $_GET);
      break;
 
@@ -37,7 +38,7 @@
 
   //list of controllers and their methods (actions).
     $controllerList = ['pages' => ['registeration', 'login', 'error'],
-                    'posts' => ['home', 'postPage', 'newPostPage', 'create'],
+                    'posts' => ['home', 'postPage', 'newPostPage', 'create', 'createComment'],
                     'users' => ['create', 'login', 'logout', 'account']];
 
     $controllerExists = false;

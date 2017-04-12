@@ -1,20 +1,5 @@
-$(document).ready(function() {
+let request = new XMLHttpRequest();
 
-	$.ajax({
-		url: "test.php",
-		data: $("#color").serialize(),
-		async: true,
-		type:
-	}).done(function(data) {
-		console.log(data);
-	});
-
-
-
-
-
-
-
-
-
-});
+request.onreadystatechange = function() {
+	
+}

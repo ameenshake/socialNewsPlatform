@@ -3,13 +3,13 @@
 
 class PostsController
 {
-    private $postData;
-    private $getData;
+    private $POSTdata;
+    private $GETdata;
 
-    public function __construct($postData, $getData)
+    public function __construct($POSTdata, $GETdata)
     {
-        $this->postData = $postData;
-        $this->getData = $getData;
+        $this->POSTdata = $POSTdata;
+        $this->GETdata = $GETdata;
     }
 
     public function home()
@@ -20,7 +20,6 @@ class PostsController
 
     public function newPostPage()
     {
-
         if (isset($_SESSION['user'])) {
             require_once 'views/posts/newPost.html';
         } else {
@@ -35,17 +34,29 @@ class PostsController
         if (isset($_SESSION['user'])) {
             $date = date('Y-m-d H:i:s');
 
-            $post = new Post($this->postData['title'], $this->postData['url'], $_SESSION['user'], $this->postData['content'], $date, 'News');
+            $post = new Post($this->POSTdata['title'], $this->POSTdata['url'], $_SESSION['user'], $this->POSTdata['content'], $date, 'News');
             $post->createPost();
         } else {
             require_once 'views/users/error3.html';
         }
     }
 
+    //Delivers the posts
     //TODO: catch for no GET['postID'] being set
     public function postPage()
-    {
-        $post = Post::fetchSinglePost($this->getData['postID']);
+    {   $postID = $this->GETdata['postID'];
+        $post = Post::fetchSinglePost($postID);
+        $comments = Comment::fetch($postID);
         require_once 'views/posts/postPage.php';
+    }
+
+    public function createComment()
+    {
+        $username = $_SESSION['user'];
+        $date = date('Y-m-d H:i:s');
+        $comment = new Comment($this->POSTdata['parentID'], $this->POSTdata['comment'], $username, $date, $this->POSTdata['postID']);
+        $comment->create();
+        $referal = $_SERVER['HTTP_REFERER'];
+        header('Location: '.$referal);
     }
 }

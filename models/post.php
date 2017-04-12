@@ -40,7 +40,7 @@ class Post
         //     $list[] = new self($value['title'], $value['link'], $value['username'], $value['content'], $value['datePosted'], $value['category']);
         // }
 
-        $list = $stmt->fetchAll();
+        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $db = null;
 
