@@ -21,7 +21,7 @@
    <div class="post comment">
      <?php
 
-      echo $comments;
+      
 
       ?>
    </div>
