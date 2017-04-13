@@ -1,5 +1,7 @@
-let request = new XMLHttpRequest();
+let data = $("#poop").serialize();
 
-request.onreadystatechange = function() {
+console.log(data);
+
+$.ajax({
 	
-}
+});
