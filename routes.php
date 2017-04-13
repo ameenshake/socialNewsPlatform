@@ -32,8 +32,9 @@
      $controller = new UsersController($_POST);
      break;
    }
-
+   require_once 'views/header.php';
    $controller->{ $action }();
+   require_once 'views/footer.php';
  }
 
   //list of controllers and their methods (actions).

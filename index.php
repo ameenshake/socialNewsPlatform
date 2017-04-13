@@ -25,4 +25,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 
 //static layout (header + {dynamic content} + footer)
-require_once 'views/layout.php';
+require_once 'routes.php';
