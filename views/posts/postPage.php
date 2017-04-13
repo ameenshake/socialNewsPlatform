@@ -20,8 +20,8 @@
 
    <div class="post comment">
      <?php
-    
-      var_dump($comments);
+
+      echo $comments;
 
       ?>
    </div>

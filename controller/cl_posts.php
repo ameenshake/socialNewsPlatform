@@ -47,7 +47,9 @@ class PostsController
     {   $postID = $this->GETdata['postID'];
         $post = Post::fetchSinglePost($postID);
         $comments = Comment::fetch($postID);
-        require_once 'views/posts/postPage.php';
+        $comments = json_encode($comments);
+        // require_once 'views/posts/postPage.php';
+        echo $comments;
     }
 
     public function createComment()

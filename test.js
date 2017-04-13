@@ -1,7 +1,12 @@
 let data = $("#poop").serialize();
 
-console.log(data);
 
 $.ajax({
+	url: "index.php?controller=posts&action=postPage&postID=3",
 	
+	success: function(data) {
+		console.log(data);
+	}
+
+
 });
