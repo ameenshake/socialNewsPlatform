@@ -27,6 +27,12 @@ class PostsController
         }
     }
 
+    public function fetchPostPage()
+    {
+        $post = Post::fetchSinglePost($this->GETdata['postID']);
+        require_once 'views/posts/postPage.php';
+    }
+
     //TODO: Set category functionality
     public function create()
     {   // apparently I already started session in layout
@@ -43,13 +49,22 @@ class PostsController
 
     //Delivers the posts
     //TODO: catch for no GET['postID'] being set
-    public function postPage()
-    {   $postID = $this->GETdata['postID'];
-        $post = Post::fetchSinglePost($postID);
-        $comments = Comment::fetch($postID);
+    public function ajaxComments()
+    {
+        $comments = Comment::fetch($this->GETdata['postID']);
+
         $comments = json_encode($comments);
-        // require_once 'views/posts/postPage.php';
+
         echo $comments;
+    }
+
+    public function ajaxPosts()
+    {
+        $post = Post::fetchSinglePost($this->GETdata['postID']);
+
+        $post = json_encode($post);
+
+        echo $post;
     }
 
     public function createComment()

@@ -32,14 +32,20 @@
      $controller = new UsersController($_POST);
      break;
    }
-
-   $controller->{ $action }();
+    //TODO: find better way of doing this than checking strings every time
+    if (substr($action, 0, 4) == 'ajax') {
+        $controller->{ $action }();
+    } else {
+        require_once 'views/header.php';
+        $controller->{ $action }();
+        require_once 'views/footer.php';
+    }
  }
 
   //list of controllers and their methods (actions).
     $controllerList = ['pages' => ['registeration', 'login', 'error'],
-                    'posts' => ['home', 'postPage', 'newPostPage', 'create', 'createComment'],
-                    'users' => ['create', 'login', 'logout', 'account']];
+                    'posts' => ['home', 'ajaxComments', 'ajaxPosts', 'newPostPage', 'fetchPostPage', 'create', 'createComment'],
+                    'users' => ['create', 'login', 'logout', 'account'], ];
 
     $controllerExists = false;
     $actionExists = false;

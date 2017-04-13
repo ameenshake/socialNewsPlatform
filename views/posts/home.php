@@ -28,7 +28,7 @@
           <a href="#"></a>
         </div>
         <div >
-          <a href="index.php?controller=posts&action=postPage&postID='.$post['postID'].'">comments</a>
+          <a href="index.php?controller=posts&action=fetchPostPage&postID='.$post['postID'].'">comments</a>
         </div>
       </div>';
     }?>
