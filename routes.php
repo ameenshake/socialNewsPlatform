@@ -15,29 +15,32 @@
    //make instance of the right class
    //(make sure to update any new controllers, that you add, here)
    switch ($controller) {
+
+     //pages only serves static pages
      case 'pages':
-     $controller = new PagesController();
+     $controllerObj = new PagesController();
      break;
 
-     //can't handle POST
+
      case 'posts':
      require_once 'models/post.php';
      require_once 'models/comment.php';
-     $controller = new PostsController($_POST, $_GET);
+     $controllerObj = new PostsController($_POST, $_GET);
      break;
 
-     //can handle POST requests
+
      case 'users':
      require_once 'models/user.php';
-     $controller = new UsersController($_POST);
+     require_once 'models/comment.php';
+     $controllerObj = new UsersController($_POST);
      break;
    }
     //TODO: find better way of doing this than checking strings every time
     if (substr($action, 0, 4) == 'ajax') {
-        $controller->{ $action }();
+        $controllerObj->{ $action }();
     } else {
         require_once 'views/header.php';
-        $controller->{ $action }();
+        $controllerObj->{ $action }();
         require_once 'views/footer.php';
     }
  }

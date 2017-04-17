@@ -36,10 +36,6 @@ class Post
         $stmt = $db->prepare($sql);
         $stmt->execute();
 
-        // foreach ($stmt->fetchAll() as $value) {
-        //     $list[] = new self($value['title'], $value['link'], $value['username'], $value['content'], $value['datePosted'], $value['category']);
-        // }
-
         $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $db = null;
@@ -73,7 +69,18 @@ class Post
         }
     }
 
-    public function fetchComments()
+    public static function fetchPostsByCategory($category)
     {
+      $list = [];
+      $db = Database::connect();
+      $sql = 'SELECT * FROM posts WHERE category = ?';
+      $stmt = $db->prepare($sql);
+      $stmt->execute([$category]);
+
+      $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      $db = null;
+
+      return $list;
     }
 }

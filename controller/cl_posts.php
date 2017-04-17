@@ -69,11 +69,16 @@ class PostsController
 
     public function createComment()
     {
+      if (isset($_SESSION['user'])) {
         $username = $_SESSION['user'];
         $date = date('Y-m-d H:i:s');
         $comment = new Comment($this->POSTdata['parentID'], $this->POSTdata['comment'], $username, $date, $this->POSTdata['postID']);
         $comment->create();
         $referal = $_SERVER['HTTP_REFERER'];
         header('Location: '.$referal);
+      } else {
+          require_once 'views/users/error3.html';
+      }
+
     }
 }

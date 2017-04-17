@@ -35,24 +35,6 @@
 
 
 
-    <div class="entry">
-      <img src="https://pbs.twimg.com/profile_images/771517286540718080/wKcYfzaJ.jpg" alt="" />
-      <span><a href="#">Apples goes bankrupt? Click Here to find out!</a></span>
-      <div>
-        <a href="#"></a>
-      </div>
-      <div >
-        <a href="">comments</a>
-      </div>
-    </div>
-    <div class="entry">
-      <img src="https://pbs.twimg.com/profile_images/709852306632744960/zQ0xyGGK.jpg" alt="" />
-      <span><a href="#">Microsoft goes bankrupt? Click Here to find out!</a></span>
-    </div>
-    <div class="entry">
-      <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="" />
-      <span><a href="#">Facebook goes bankrupt? Click Here to find out!</a></span>
-    </div>
-  </section>
+
 
 </div>

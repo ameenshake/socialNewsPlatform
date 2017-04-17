@@ -10,7 +10,7 @@
 
         <form class="" action="index.php?controller=posts&action=createComment" method="post">
           <input type="hidden" name="parentID" value="0">
-          <input type="hidden" name="postID" value="<?php echo $_GET['postID']; ?>">
+          <input id="postID" type="hidden" name="postID" value="<?php echo $_GET['postID']; ?>">
           <textarea id="comment" name="comment" rows="8" cols="80"></textarea>
           <input type="submit" name="" value="Submit Comment">
         </form>
@@ -18,11 +18,19 @@
     </section>
 
 
-   <div class="post comment">
-     <?php
+   <div class="post ">
+    <ul class="commentarea">
+      <li>Hello
+        <ul>
+          <li>Hi</li>
+        </ul>
+      </li>
 
-      
-
-      ?>
+      <li>asdasd</li>
+    </ul>
    </div>
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/ajax.js" charset="utf-8"></script>

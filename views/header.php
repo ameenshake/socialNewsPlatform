@@ -12,6 +12,7 @@
 
   //TODO: fix unruly way to display post titles, especially for posts
             switch ($controller) {
+
               case 'pages':
 
                 if ($action == 'registeration') {
@@ -27,11 +28,11 @@
               case 'posts':
 
                 if ($action == 'home') {
-                  echo 'Home';
+                    echo 'Home';
                 } elseif ($action == 'newPostPage') {
-                  echo 'New Post';
+                    echo 'New Post';
                 } elseif ($action == 'postPage') {
-                  echo 'Post';
+                    echo 'Post';
                 }
 
                 break;
@@ -44,7 +45,8 @@
 
 <body>
   <header>
-    <div class="topmost">
+
+
       <a class="logo" href="index.php">MyDiscussionForum</a>
 
       <?php
@@ -58,15 +60,14 @@
     <a class="user" href="index.php?controller=pages&action=registeration">Register</a>';
       }?>
 
-    </div>
+      <nav class="headLinks">
+        <ul class="tabmenu">
+          <li><a href="">Latest Stories</a></li>
+          <li><a href="">Best Stories</a></li>
+        </ul>
+      </nav>
+    
 
-    <nav>
-      <ul class="tabmenu">
-        <li><a href="">Latest Stories</a></li>
-        <li><a href="">Best Stories</a></li>
-      </ul>
-    </nav>
+
 
   </header>
-
-    <?php

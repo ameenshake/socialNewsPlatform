@@ -49,6 +49,8 @@ class UsersController
   public function account()
    {
      if(isset($_SESSION['user'])){
+       $username = $_SESSION['user'];
+       $comments = Comment::fetchByUser($username);
        require_once 'views/users/account.php';
      }
    }
