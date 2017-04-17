@@ -27,30 +27,49 @@ let stuff = function() {
 				if (!existingComments.includes(i.commentID)) {
 
 					if (i.parentID == 0) {
-						$(".commentarea").append(`<li class="comment">  ${i.commentText}
-                                        <input type="hidden" name="commentID" value="${i.commentID}"></input> <a id="reply${i.commentID}" class="reply" href="javascript:void(0);" >reply</a>
+						$(".commentarea").append(`<li class="comment" id="item${i.commentID}" >  ${i.commentText}
+                                        <input type="hidden" name="commentID" value="${i.commentID}">
+                                        <a id="reply${i.commentID}" class="reply" href="javascript:void(0);" >reply</a>
                                       </li>`);
 
-						$("#reply" + i.commentID).on("click", () => {
-							$("#reply" + i.commentID).after(`<form method="post" action="index.php?controller=posts&action=createComment" >
-                                                  <input type="hidden" name="parentID" value="${i.commentID}">
-                                                  <input id="postID" type="hidden" name="postID" value="${i.postID}">
-                                                  <textarea></textarea>
-                                               </form>`);
-						});
+
 
 					} else {
-						for (let p of $(".comment > input")) {
-							if (p.value == i.parentID) {
-								p.after("lol");
-							}
+
+
+						if ($("#innerComment" + i.parentID).val() === undefined) {
+							$("#reply" + i.parentID).after(`<ul id="innerComment${i.parentID}" class="innerComment">
+                                               <li class="comment" id="item${i.commentID}" >  ${i.commentText}
+                                                  <input type="hidden" name="commentID" value="${i.commentID}">
+                                                  <a id="reply${i.commentID}" class="reply" href="javascript:void(0);" >reply</a>
+                                               </li>
+                                            </ul>`);
+						} else {
+              $("#innerComment" + i.parentID).append(`<li class="comment" id="item${i.commentID}" >  ${i.commentText}
+                                                          <input type="hidden" name="commentID" value="${i.commentID}">
+                                                          <a id="reply${i.commentID}" class="reply" href="javascript:void(0);" >reply</a>
+                                                      </li>`);
 						}
+
 					}
+
+          //adds eventListeners to each reply element
+					$("#reply" + i.commentID).on("click", () => {
+						$("#reply" + i.commentID).after(`<form method="post" action="index.php?controller=posts&action=createComment" >
+                                                <input type="hidden" name="parentID" value="${i.commentID}">
+                                                <input id="postID" type="hidden" name="postID" value="${i.postID}">
+                                                <input type="submit" name="" value="Submit Comment">
+                                                <textarea id="comment" name="comment"></textarea>
+                                             </form>`);
+					});
 				}
+
+
+
 			}
 
 
-			console.log($(".rewply").val() == undefined);
+
 
 			window.setTimeout(stuff, 5000);
 		}

@@ -20,13 +20,7 @@
 
    <div class="post ">
     <ul class="commentarea">
-      <li>Hello
-        <ul>
-          <li>Hi</li>
-        </ul>
-      </li>
 
-      <li>asdasd</li>
     </ul>
    </div>
 </div>

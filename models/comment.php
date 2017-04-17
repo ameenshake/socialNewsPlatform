@@ -28,7 +28,7 @@ class Comment
     public static function fetch($postID)
     {
       $db = Database::connect();
-      $sql = 'SELECT * FROM comments WHERE postID = ? ORDER BY comments.parentID DESC';
+      $sql = 'SELECT * FROM comments WHERE postID = ? ORDER BY comments.parentID ASC';
       $stmt = $db->prepare($sql);
       $stmt->execute([$postID]);
 
@@ -41,6 +41,6 @@ class Comment
       $stmt = $db->prepare($sql);
       $stmt->execute([$username]);
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
