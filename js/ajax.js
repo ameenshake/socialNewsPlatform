@@ -31,12 +31,7 @@ let stuff = function() {
                                         <input type="hidden" name="commentID" value="${i.commentID}">
                                         <a id="reply${i.commentID}" class="reply" href="javascript:void(0);" >reply</a>
                                       </li>`);
-
-
-
 					} else {
-
-
 						if ($("#innerComment" + i.parentID).val() === undefined) {
 							$("#reply" + i.parentID).after(`<ul id="innerComment${i.parentID}" class="innerComment">
                                                <li class="comment" id="item${i.commentID}" >  ${i.commentText}
@@ -45,7 +40,7 @@ let stuff = function() {
                                                </li>
                                             </ul>`);
 						} else {
-              $("#innerComment" + i.parentID).append(`<li class="comment" id="item${i.commentID}" >  ${i.commentText}
+							$("#innerComment" + i.parentID).append(`<li class="comment" id="item${i.commentID}" >  ${i.commentText}
                                                           <input type="hidden" name="commentID" value="${i.commentID}">
                                                           <a id="reply${i.commentID}" class="reply" href="javascript:void(0);" >reply</a>
                                                       </li>`);
@@ -53,7 +48,7 @@ let stuff = function() {
 
 					}
 
-          //adds eventListeners to each reply element
+					//adds eventListeners to each reply element
 					$("#reply" + i.commentID).on("click", () => {
 						$("#reply" + i.commentID).after(`<form method="post" action="index.php?controller=posts&action=createComment" >
                                                 <input type="hidden" name="parentID" value="${i.commentID}">

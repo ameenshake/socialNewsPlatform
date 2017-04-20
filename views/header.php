@@ -66,7 +66,7 @@
           <li><a href="">Best Stories</a></li>
         </ul>
       </nav>
-    
+
 
 
 
