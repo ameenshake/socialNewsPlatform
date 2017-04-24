@@ -12,4 +12,4 @@
 * Implementing view layer in Vue.js
 * Twig support
 * Making backend RESTful
-* Using vanilla JavaScript where possible (excluding Vue.js) and replacing jQuery
+* Replacing jQuery with vanilla JavaScript
