@@ -13,3 +13,7 @@
 * Twig support
 * Replacing jQuery with vanilla JavaScript
 * Better routing support
+* Responsive for mobile
+
+
+#### Missing 
