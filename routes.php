@@ -3,7 +3,6 @@
  *  You guessed it, this file manages the routing for the
  *  different GET and POST requests
  *
- * TODO: Better way to handle routing?
  *---------------------------------------------------------*/
 
  function call($controller, $action)

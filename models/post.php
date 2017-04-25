@@ -4,7 +4,7 @@
  *  All database logic for Posts goes here.
  *  You will find function to return all posts find
  *
- * TODO: surround reset of models with try..catch blocks
+ * TODO: surround rest of models with try..catch blocks, maybe.
  *---------------------------------------------------------*/
 
 class Post

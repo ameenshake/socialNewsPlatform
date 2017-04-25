@@ -1,4 +1,4 @@
-# MyDiscussionForum
+# MyDiscussionForum - Hacker News / Reddit inspired discussion website
 
 #### FEATURES
 * User Accounts &#10004;
@@ -9,7 +9,7 @@
 * JavaScript written in ES6 &#10004;
 
 #### Future Plans
-* Implementing view layer in Vue.js
+* SPA with Vue.js
 * Twig support
-* Making backend RESTful
 * Replacing jQuery with vanilla JavaScript
+* Better routing support
