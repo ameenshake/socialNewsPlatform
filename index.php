@@ -7,7 +7,7 @@
 
 require_once 'db.php';
 
-//checks if pararmets of controller and action are set, otherwise it set them
+//checks if pararmets of controller and action are set, otherwise it sets them
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = $_GET['controller'];
         $action = $_GET['action'];
@@ -16,5 +16,5 @@ require_once 'db.php';
         $action = 'home';
     }
 
-//static layout (header + {dynamic content} + footer)
+//serves static layout (header + {dynamic content} + footer)
 require_once 'routes.php';

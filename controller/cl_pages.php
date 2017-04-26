@@ -1,8 +1,6 @@
 <?php
 /*---------------------------------------------------------
  *  Controller class to serve static pages.
- *  Can define variables to declutter views
-
  *---------------------------------------------------------*/
 class PagesController
 {

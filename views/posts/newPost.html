@@ -1,13 +1,13 @@
 
 
-
+<!--TODO: Add client side validation -->
 
   <div class="main">
     <div class="register">
       <form class="middle" action="index.php?controller=posts&action=create" method="post">
         <span>CREATE A NEW POST</span>
         <input class="fat" type="text" name="title" value="" placeholder="title">
-        <input class="fat" type="text" name="url" value="" placeholder="url">
+        <input class="fat" type="url" name="url" value="" placeholder="url">
         <textarea id="content" name="content" rows="20" cols="80" placeholder="content"></textarea>
         <input id="button" type="submit" name="" value="POST">
       </form>

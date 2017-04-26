@@ -1,5 +1,10 @@
 <?php
 
+/*---------------------------------------------------------
+ *  Controller which queries db and serves posts.
+ *
+ *
+ *---------------------------------------------------------*/
 
 class PostsController
 {
@@ -12,12 +17,14 @@ class PostsController
         $this->GETdata = $GETdata;
     }
 
+    //returns the homepage
     public function home()
     {
         $posts = Post::fetchPosts();
         require_once 'views/posts/home.php';
     }
 
+    //serves the page to create new posts
     public function newPostPage()
     {
         if (isset($_SESSION['user'])) {
@@ -27,16 +34,17 @@ class PostsController
         }
     }
 
+    //serves pages for each specific post (when you click on comments)
     public function fetchPostPage()
     {
         $post = Post::fetchSinglePost($this->GETdata['postID']);
         require_once 'views/posts/postPage.php';
     }
 
+    //creates a new post to store in the database
     //TODO: Set category functionality
     public function create()
-    {   // apparently I already started session in layout
-        // session_start();
+    {
         if (isset($_SESSION['user'])) {
             $date = date('Y-m-d H:i:s');
 

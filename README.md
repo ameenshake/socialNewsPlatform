@@ -1,19 +1,32 @@
 # MyDiscussionForum - Hacker News / Reddit inspired discussion website
 
-#### FEATURES
-* User Accounts &#10004;
-* Comments updated asynchronously &#10004;
-* Built with modern PHP &#10004;
-* Custom implementation of MVC without any server-side framework &#10004;
-* Clean and well commented code &#10004;
-* JavaScript written in ES6 &#10004;
+Demo [here](https://dry-harbor-68054.herokuapp.com/index.php).
 
-#### Future Plans
-* SPA with Vue.js
-* Twig support
-* Replacing jQuery with vanilla JavaScript
-* Better routing support
-* Responsive for mobile
+## FEATURES
 
+- User Accounts ✔
+- Comments updated asynchronously ✔
+- Built with modern PHP ✔
+- Custom implementation of MVC without any server-side framework ✔
+- Clean and well commented code ✔
+- JavaScript written in ES6 ✔
 
-#### Missing 
+## How it works
+
+Each request goes through `index.php`, which passes it to `routes.php`. This files contains functions to process the request and pass it to the correct controller. The controller then takes the data and executes the action that was requested.
+
+The file `db.php` stores the database connection information.
+
+## Missing features
+
+- Client side and server side validation for empty fields
+- User account shows user's comment and post history
+- Categories
+
+## Future Plans
+
+- SPA with Vue or React
+- Twig support
+- Replacing jQuery with vanilla JavaScript
+- Better routing support
+- Responsive for mobile
