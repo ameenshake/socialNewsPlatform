@@ -1,6 +1,10 @@
+/*---------------------------------------------------------
+ *	Performs ajax requests in a loop to update comments. The
+ * 	request is made every 5 seconds.
+ *---------------------------------------------------------*/
+
 //calls itself over and over and over...and over...with no end in sight (im proud of this one)
-let stuff = function() {
-	let temp;
+let commentsLoad = function() {
 
 	$.ajax({
 		url: "index.php?controller=posts&action=ajaxComments",
@@ -14,13 +18,10 @@ let stuff = function() {
 
 			//stores all the existing comment's commentIDs in array
 			let existingComments = [];
+
 			for (let k of $(".comment > input")) {
 				existingComments.push(k.value);
-
 			}
-
-
-
 
 			//checks if commentId exists by comparing with existingComments array, otherwise adds it
 			for (let i of jsondata) {
@@ -70,4 +71,6 @@ let stuff = function() {
 		}
 	});
 };
-stuff();
+
+
+commentsLoad();

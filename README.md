@@ -17,6 +17,8 @@ Each request goes through `index.php`, which passes it to `routes.php`. This fil
 
 The file `db.php` stores the database connection information.
 
+The file `js/ajax.js` is used to fetch and update comments asynchronously. It runs a loop, refreshing every 5 seconds to query the database for any new comments.
+
 ## Missing features
 
 - Client side and server side validation for empty fields
